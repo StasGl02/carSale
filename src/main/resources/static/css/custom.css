@@ -2,6 +2,9 @@ html {
   font-family: 'Inter';
   box-sizing: border-box;
 }
+input {
+  outline: none;
+}
 label {
   display: block;
 }
@@ -58,7 +61,7 @@ select:focus {
   color: #00ad64;
   text-align: center;
 }
-.nav {
+.nav-custom {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -86,7 +89,7 @@ select:focus {
 .cars {
   padding-top: 40px;
 }
-.nav-link {
+.nav-link-custom {
   text-decoration: none;
   font-family: 'Inter';
   font-style: normal;
@@ -97,7 +100,7 @@ select:focus {
   padding-bottom: 16px;
   transition: 0.5s;
 }
-.nav-link:hover {
+.nav-link-custom:hover {
   color: #00ad64;
 }
 .active::after {
@@ -160,7 +163,7 @@ select:focus {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;
+  row-gap: 30px;
 }
 .select {
   position: relative;
@@ -289,16 +292,6 @@ select:focus .select::after {
 .img-container {
   position: relative;
 }
-.like {
-  z-index: 5;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  transition: 0.5s;
-}
-.like-hover {
-  transition: 0.5s;
-}
 .car-model::after {
   content: '';
   position: absolute;
@@ -312,7 +305,7 @@ select:focus .select::after {
 .card:hover .car-model::after {
   width: 100%;
 }
-.card:hover .like-hover {
+.card:hover {
   fill: red;
 }
 .card:hover {
@@ -328,5 +321,93 @@ select:focus .select::after {
 }
 .sort {
   margin-left: auto;
+}
+
+.transmission {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.transmission-first {
+  display: flex;
+  align-items: center;
+}
+.transmission-second {
+  display: flex;
+  align-items: center;
+}
+#transmission-first-name {
+  margin-left: 20px;
+}
+#transmission-second-name {
+  margin-left: 20px;
+}
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.checkbox__container {
+  display: flex;
+  align-items: center;
+}
+.checkbox-label {
+  margin-left: 20px;
+}
+
+.select-region {
+  max-height: 50px;
+  align-self: flex-end;
+}
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.car-desciption {
+  resize: none;
+  outline: none;
+  display: block;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #444;
+}
+.transmission-text {
+  margin-top: 0px;
+}
+.textarea-text {
+  margin-top: 0px;
+}
+.submit-btn {
+  width: 140px;
+  background-color: #007aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 16px;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.submit-btn:hover {
+  filter: grayscale(40%);
+  color: white;
 }
 

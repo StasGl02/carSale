@@ -1,6 +1,6 @@
-<#import "parts/common.ftlh" as c>
-<#import "parts/login.ftlh" as l>
-<#import "parts/security.ftlh" as s>
+<#import "header.ftlh" as c>
+<#import "loginTemplate.ftlh" as l>
+<#import "security.ftlh" as s>
 
 <@c.page>
     <#assign options = ["Кондиционер", "Обогрев сидений", "ABS", "Штатная навигация", "Камера", "Защита от угона",
