@@ -2,7 +2,6 @@ package com.announcements.carSale.controllers;
 
 import com.announcements.carSale.models.*;
 import com.announcements.carSale.services.*;
-import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,9 +35,22 @@ public class MainController {
 
     @GetMapping("/")
     public String mainPage(Model model) {
-        List<Offer> offers = offerService.findApprovedOffers();
+        List<Offer> offers = offerService.findApprovedOffersPriceAsc();
         fill(model, makeService, bodyService, engineService, colorService, regionService);
         model.addAttribute("offers", offers);
+        return "main";
+    }
+
+    @PostMapping("/filter")
+    public String filter(@RequestParam(value = "sort", required = false) String sort, Model model) {
+        switch (sort) {
+            case "byPriceDesc" -> model.addAttribute("offers", offerService.findApprovedOffersPriceDesc());
+            case "byPriceAsc" -> model.addAttribute("offers", offerService.findApprovedOffersPriceAsc());
+            case "byYearDesc" -> model.addAttribute("offers", offerService.findApprovedOffersYearDesc());
+            case "byYearAsc" -> model.addAttribute("offers", offerService.findApprovedOffersYearAsc());
+            case "byMileage" -> model.addAttribute("offers", offerService.findApprovedOffersMileageAsc());
+        }
+        fill(model, makeService, bodyService, engineService, colorService, regionService);
         return "main";
     }
 
@@ -51,7 +63,7 @@ public class MainController {
                          @RequestParam(value = "priceFrom", required = false, defaultValue = "0") String priceFrom,
                          @RequestParam(value = "priceTo", required = false, defaultValue = "0") String priceTo,
                          Model modelAttr) {
-        List<Offer> allOffers = offerService.findApprovedOffers();
+        List<Offer> allOffers = offerService.findApprovedOffersPriceAsc();
         List<Offer> searchOffers = new ArrayList<>();
         for (Offer offer : allOffers) {
             if ((offer.getModel() == modelService.findModelById(Long.parseLong(model)) || model.equals("0"))

@@ -31,7 +31,7 @@ public class PublicationController {
 
     @GetMapping("unreviewed")
     public String showUnreviewedOffers(Model model) {
-        List<Offer> offers = offerService.findUnreviewedOffers();
+        List<Offer> offers = offerService.findUnreviewedOffersPriceAsc();
         model.addAttribute("offers", offers);
         return "main";
     }

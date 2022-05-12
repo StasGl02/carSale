@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -62,7 +63,7 @@ public class OfferController {
                           @RequestParam String transmission, @RequestParam double engineCapacity,
                           @RequestParam int year, @RequestParam int mileage,
                           @RequestParam String description, @RequestParam long region,
-                          @RequestParam(value = "photos", required = false) MultipartFile[] photos) {
+                          @RequestParam(value = "photos", required = false) MultipartFile[] photos) throws IOException {
 
         com.announcements.carSale.models.Model m = modelService.findModelById(model);
         Body b = bodyService.findBodyById(body);

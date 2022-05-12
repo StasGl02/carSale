@@ -22,15 +22,31 @@ public class OfferService {
         }
         return offers;
     }
-    public List<Offer> findApprovedOffers() {
-        return offerRepo.findOffersByStatusOrderByPriceAsc(1);
-    }
 
     public List<Offer> findRejectedOffers() {
         return offerRepo.findOffersByStatusOrderByPriceAsc(-1);
     }
+    public List<Offer> findApprovedOffersPriceAsc() {
+        return offerRepo.findOffersByStatusOrderByPriceAsc(1);
+    }
 
-    public List<Offer> findUnreviewedOffers() {
+    public List<Offer> findApprovedOffersPriceDesc() {
+        return offerRepo.findOffersByStatusOrderByPriceDesc(1);
+    }
+
+    public List<Offer> findApprovedOffersYearAsc() {
+        return offerRepo.findOffersByStatusOrderByYearAsc(1);
+    }
+
+    public List<Offer> findApprovedOffersYearDesc() {
+        return offerRepo.findOffersByStatusOrderByYearDesc(1);
+    }
+
+    public List<Offer> findApprovedOffersMileageAsc() {
+        return offerRepo.findOffersByStatusOrderByMileageAsc(1);
+    }
+
+    public List<Offer> findUnreviewedOffersPriceAsc() {
         return offerRepo.findOffersByStatusOrderByPriceAsc(0);
     }
 

@@ -23,8 +23,11 @@
     </script>
     <div class="wrapper">
       <div class="container cars">
-        <#if springMacroRequestContext.requestUri?ends_with("/") || springMacroRequestContext.requestUri?contains("/search")>
-        <form class="filters" action="/search" method="post">
+        <#if springMacroRequestContext.requestUri?ends_with("/")
+        || springMacroRequestContext.requestUri?contains("/search")
+        || springMacroRequestContext.requestUri?contains("/filter")>
+        <form action="/search" method="post">
+          <div class="filters">
           <div class="select">
             <select name="make" id="makeId">
               <option disabled selected value=0>Марка</option>
@@ -69,27 +72,33 @@
             </div>
           </div>
           <input type="hidden" value="${_csrf.token}" name="_csrf">
-        <div class="btn-row">
-          <button type="submit" class="search-btn">Найти</button>
-        </div>
+          </div>
+           <div class="btn-row">
+               <button type="submit" class="search-btn">Найти</button>
+           </div>
         </form>
+
         <div class="sort-row">
           <div class="select sort">
-            <select name="sort">
-              <option selected value="0">Дорогие сначала</option>
-              <option name="sort" value="1">Дешевые сначала</option>
-              <option name="sort" value="2">Новые сначала</option>
-              <option name="sort" value="3">Старые сначала</option>
-              <option name="sort" value="4">По пробегу</option>
-            </select>
+              <form action="/filter" method="post">
+                <select name="sort" onchange="this.form.submit()">
+                  <option disabled selected value="0">Сортировка</option>
+                  <option value="byPriceAsc">Дешевые сначала</option>
+                  <option name="sort" value="byPriceDesc">Дорогие сначала</option>
+                  <option name="sort" value="byYearDesc">Новые сначала</option>
+                  <option name="sort" value="byYearAsc">Старые сначала</option>
+                  <option name="sort" value="byMileage">По пробегу</option>
+                </select>
+                <input type="hidden" value="${_csrf.token}" name="_csrf">
+              </form>
           </div>
         </div>
       </#if>
       <#if offers?size == 0>
       <p>Нет объявлений</p>
       <#else>
-      <#list offers as offer>
         <div class="cards-container">
+          <#list offers as offer>
           <a href="/publication/${offer.id}" class="card">
             <div class="img-container">
               <#if offer.photos?size != 0>
@@ -103,8 +112,8 @@
               <div class="car-price">$${offer.price}</div>
             </div>
           </a>
+          </#list>
         </div>
-        </#list>
         </#if>
       </div>
     </div>

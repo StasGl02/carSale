@@ -25,7 +25,8 @@
     </script>
     <div class="wrapper">
         <div class="container cars">
-            <form class="filters" action="/offer" method="post" enctype="multipart/form-data">
+            <form action="/offer" method="post" enctype="multipart/form-data">
+                <div class="filters">
                 <div class="select">
                     <select name="make" id="makeId" required>
                         <option disabled selected value="">Марка</option>
@@ -145,11 +146,12 @@
                     <p class="textarea-text">Описание</p>
                     <textarea class="car-description" name="description" cols="50" rows="7"></textarea>
                 </div>
+                </div>
+                <div class="btn-row">
+                    <input type="hidden" value="${_csrf.token}" name="_csrf">
+                    <button type="submit" class="submit-btn">Опубликовать</button>
+                </div>
             </form>
-            <div class="btn-row">
-                <input type="hidden" value="${_csrf.token}" name="_csrf">
-                <button type="submit" class="submit-btn">Опубликовать</button>
-            </div>
             <div class="sort-row"></div>
             <div class="cards-container"></div>
         </div>

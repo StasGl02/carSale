@@ -13,11 +13,11 @@ class OfferServiceTest {
 
     @Test
     void findApprovedOffers() {
-        assertEquals(offerService.findApprovedOffers().size(), 2);
+        assertEquals(offerService.findApprovedOffersPriceAsc().size(), 2);
     }
 
     @Test
     void findUnreviewedOffers() {
-        assertEquals(offerService.findUnreviewedOffers().size(), 1);
+        assertEquals(offerService.findUnreviewedOffersPriceAsc().size(), 1);
     }
 }
