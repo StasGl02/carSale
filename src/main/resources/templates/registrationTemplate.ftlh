@@ -3,19 +3,19 @@
         <div style="margin-left: 30px">
             <div class="range" style="margin-top: 10px">
                 Логин:
-                <input type="text" name="username" class="form-control" required/>
+                <input type="text" name="username" required/>
             </div>
             <div class="range" style="margin: 10px 0">
                 Пароль:
-                <input type="password" name="password" class="form-control" required minlength="3"/>
+                <input type="password" name="password" required minlength="3"/>
             </div>
             <div class="range">
                 Имя:
-                <input type="text" name="name" class="form-control" required/>
+                <input type="text" name="name" required/>
             </div>
             <div class="range" style="margin: 10px 0">
                 Номер телефона:
-                <input type="text" name="phone" class="form-control" placeholder="375XXXXXXXXX" required
+                <input type="text" name="phone" placeholder="375XXXXXXXXX" required
                            pattern="375[0-9]{9}"/>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}" />

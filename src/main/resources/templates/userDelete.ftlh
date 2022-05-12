@@ -3,8 +3,8 @@
 
 <@c.page>
     <form action="/user/delete" method="post">
-        <div style="margin-left: 30px">
-            <div class="range">
+        <div style="margin-left: 30px; margin-top: 30px;">
+            <div class="range" style="margin-bottom: 10px;">
                 <span>Логин:</span>
                 <input disabled type="text" value="${user.username!}" name="username" required/>
             </div>
@@ -12,7 +12,7 @@
                 <span>Имя:</span>
                 <input disabled type="text" value="${user.name!}" name="name" required/>
             </div>
-            <div class="range">
+            <div class="range" style="margin: 10px 0;">
                 <span>Номер телефона:</span>
                 <input disabled type="text" value="${user.phone!}" name="phone" placeholder="375XXXXXXXXX" required
                            pattern="375[0-9]{9}"/>

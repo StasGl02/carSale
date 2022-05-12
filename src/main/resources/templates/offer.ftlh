@@ -104,7 +104,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="file" id="files" name="photos" multiple accept="image/*">
+                        <input type="file" name="photos" multiple accept="image/*">
                     </div>
                 </div>
                 <div class="checkbox">
@@ -143,7 +143,7 @@
                 </div>
                 <div class="textarea-container">
                     <p class="textarea-text">Описание</p>
-                    <textarea class="car-desciption" name="description" cols="50" rows="7"></textarea>
+                    <textarea class="car-description" name="description" cols="50" rows="7"></textarea>
                 </div>
             </form>
             <div class="btn-row">

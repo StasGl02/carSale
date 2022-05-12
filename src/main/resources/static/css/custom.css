@@ -164,6 +164,7 @@ select:focus {
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 30px;
+  column-gap: 10px;
 }
 .select {
   position: relative;
@@ -292,6 +293,16 @@ select:focus .select::after {
 .img-container {
   position: relative;
 }
+.like {
+  z-index: 5;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: 0.5s;
+}
+.like-hover {
+  transition: 0.5s;
+}
 .car-model::after {
   content: '';
   position: absolute;
@@ -305,7 +316,7 @@ select:focus .select::after {
 .card:hover .car-model::after {
   width: 100%;
 }
-.card:hover {
+.card:hover .like-hover {
   fill: red;
 }
 .card:hover {
@@ -364,7 +375,7 @@ select:focus .select::after {
   flex-direction: column;
   gap: 5px;
 }
-.car-desciption {
+.car-description {
   resize: none;
   outline: none;
   display: block;
@@ -411,3 +422,215 @@ select:focus .select::after {
   color: white;
 }
 
+/* One advertisement for the sale of a car */
+/* SWIPER*/
+.swiper {
+  width: 100%;
+  height: 540px;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* SWIPER END*/
+.car-img-container {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+/*  advertisement  */
+.title-ad {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 24px;
+  color: #262626;
+}
+.characteristics {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 180px;
+  gap: 8px;
+}
+.characteristics-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 24px;
+  color: #262626;
+  margin-top: 40px;
+}
+.characteristic {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #262626;
+  margin: 0;
+}
+.characteristics-phone {
+  font-size: 22px;
+}
+.ad-description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #262626;
+  margin: 0;
+}
+.favourite-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.delete-favourite {
+  width: 240px;
+  background-color: #007aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 16px;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.delete-favourite:hover {
+  filter: grayscale(40%);
+  color: white;
+}
+/*advertisement End*/
+
+/*Comment*/
+.leave-comment {
+  resize: none;
+  outline: none;
+  display: block;
+  padding: 0.75rem 1.5rem 0.75rem 1rem;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #444;
+}
+.submit-comment {
+  width: 140px;
+  margin-top: 20px;
+  background-color: #007aff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.submit-comment:hover {
+  filter: grayscale(40%);
+  color: white;
+}
+
+.delete-comment {
+  width: 140px;
+  margin-top: 20px;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  padding: 0 16px;
+  height: 40px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  touch-action: manipulation;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.delete-comment:hover {
+  filter: grayscale(40%);
+  color: white;
+}
+.comment {
+  display: flex;
+  flex-direction: column;
+  column-gap: 5px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  max-width: 70%;
+  background-color: #f7f7f7;
+  text-decoration: none;
+  color: #262626;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 1s;
+}
+.comment:hover {
+  border: 1px solid #007aff;
+}
+/*Comment End*/
