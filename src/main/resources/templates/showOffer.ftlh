@@ -94,17 +94,17 @@
                 </form>
                 <#if offer.comments?size != 0>
                 <form action="/publication/comment/delete" method="post">
-                    <div class="comment">
-                        <input type="hidden" value="${_csrf.token}" name="_csrf">
-                        <#list offer.comments as comment>
+                    <input type="hidden" value="${_csrf.token}" name="_csrf">
+                    <#list offer.comments as comment>
+                        <div class="comment">
                             <input type="hidden" value="${comment.id}" name="commentId" />
-                            <p>${comment.user.name}, ${comment.publicationTime}</p>
+                            <p style="font-size: 12px;">${comment.user.name}, ${comment.publicationTime}</p>
                             <p>${comment.text}</p>
                             <#if s.isAdmin>
                                 <button type="submit" class="delete-comment"> Удалить</button>
                             </#if>
-                        </#list>
-                    </div>
+                        </div>
+                    </#list>
                 </form>
                 </#if>
             </#if>
